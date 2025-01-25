@@ -64,10 +64,10 @@ const images = [
       },
     ];
     
-    // Посилання на контейнер галереї
+
 const gallery = document.querySelector('.gallery');
 
-// Створення розмітки
+
 const galleryMarkup = images
 .map(
     ({ preview, original, description }) => `
@@ -87,21 +87,21 @@ const galleryMarkup = images
 
 gallery.innerHTML = galleryMarkup;
 
-// Обробка кліка
+
 gallery.addEventListener('click', onGalleryClick);
 
 function onGalleryClick(event) {
-  event.preventDefault(); // Забороняємо поведінку за замовчуванням
+  event.preventDefault();
 
 const clickedImage = event.target;
 
-  // Перевіряємо, чи натиснули на зображення
+
 if (clickedImage.nodeName !== 'IMG') return;
 
-  // Отримуємо посилання на велике зображення
+
 const largeImageURL = clickedImage.dataset.source;
 
-  // Відкриваємо модальне вікно
+
 const modal = basicLightbox.create(`
     <img src="${largeImageURL}" alt="${clickedImage.alt}" />
 `);
